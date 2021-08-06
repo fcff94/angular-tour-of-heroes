@@ -10,14 +10,10 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
-  // hero: Hero = {
-  //   id: 1,
-  //   name: "Windstorm"
-  // };
   
   heroes: Hero[] = [];
   
-  selectedHero?: Hero;
+  // selectedHero?: Hero;
 
   constructor(private heroService: HeroService, private messageService: MessageService) {}
   
@@ -25,18 +21,14 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero ID ${hero.id} called ${hero.name}`);
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponent: Selected hero ID ${hero.id} called ${hero.name}`);
+  // }
 
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
   }
-
-  // getHeroes(): void {
-  //   this.heroes = this.heroService.getHeroes();
-  // }
 
 }
